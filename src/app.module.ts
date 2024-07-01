@@ -3,14 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { ProjectsModule } from './projects/projects.module';
-import { MongooseModule } from '@nestjs/mongoose';
+import { ReportModule } from './report/report.module';
 
 @Module({
-  imports: [
-    PostsModule,
-    ProjectsModule,
-    MongooseModule.forRoot(process.env.ZAINKURNIA_BLOG_MONGODB_URI),
-  ],
+  imports: [PostsModule, ProjectsModule, ReportModule],
   controllers: [AppController],
   providers: [AppService],
 })

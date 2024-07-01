@@ -1,4 +1,13 @@
-import { Controller, Get, Header, HttpCode, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Header,
+  HttpCode,
+  Param,
+  Post,
+} from '@nestjs/common';
+import { Post as PostSchema } from './posts.schema';
 
 @Controller('posts')
 export class PostsController {
@@ -18,7 +27,7 @@ export class PostsController {
   }
 
   @Post('create-new-post')
-  createNewPost(): string {
-    return 'SUCCESSFULLY CREATE NEW POST!';
+  createNewPost(@Body() body: PostSchema): PostSchema {
+    return body;
   }
 }

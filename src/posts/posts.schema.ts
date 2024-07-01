@@ -35,24 +35,24 @@ export class Post {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true })
-  breadcrumbs: Breadcrumb[];
+  // @Prop({ required: true })
+  // breadcrumbs: Breadcrumb[];
 
   @Prop()
   thumbnailUrl: string;
 
-  @Prop({ required: true })
-  createdAt: Date;
+  // @Prop({ required: true })
+  // createdAt: Date;
 
-  @Prop({ required: true })
-  updatedAt: Date;
+  // @Prop({ required: true })
+  // updatedAt: Date;
 
   @Prop()
   labels: Label[];
 
-  @Prop({ required: true })
-  author: Author;
+  // @Prop({ required: true })
+  // author: Author;
 
   @Prop({ required: true })
-  contentPath: Blob;
+  contentPath: string;
 }

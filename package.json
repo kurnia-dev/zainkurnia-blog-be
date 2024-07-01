@@ -26,6 +26,9 @@
     "@nestjs/platform-express": "^10.3.9",
     "@vercel/node": "^3.2.0",
     "mongoose": "^8.4.4",
+    "puppeteer": "^22.12.1",
+    "puppeteer-core": "^22.12.1",
+    "puppeteer-report": "^3.1.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
