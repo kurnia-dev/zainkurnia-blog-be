@@ -30,14 +30,14 @@
             letter-spacing: 0.02em;
             text-align: left;
             position: relative;
-            padding: 8px 24px;
+            padding: 8px 0;
         }
 
 
         header,
         footer {
-            position: fixed;
-            right: 24px;
+            position: absolute;
+            right: 0;
             display: flex;
             gap: 12px;
             align-items: center;
@@ -55,7 +55,7 @@
         @media print {
             header {
                 display: flex;
-                top: 8px;
+                top: 0;
                 justify-content: flex-end;
             }
 
@@ -166,13 +166,8 @@
 </head>
 
 <body>
-    <header>
-        <span class="author">Created by: Zain Kurnia</span>
-        <span class="timestamp">Wed 21/06/2023</span>
-    </header>
-
     <script>
-        function createFootersForPDF() {
+        function createHeaderFooter() {
             const a4HeightLandscape = 794;
 
             // Get the content height
@@ -180,19 +175,31 @@
 
             // Calculate the number of pages (assuming A4 landscape with provided height)
             const numPages = Math.ceil(contentHeight / a4HeightLandscape);
+            const author = 'Zain Kurnia';
+            const timestamp = new Date().toLocaleDateString('en-us', { weekday: "short", day: '2-digit', month: '2-digit', year: 'numeric' });
 
             // Add footer elements for each page
             for (let i = 1; i <= numPages; i++) {
                 const footer = document.createElement('footer');
-
-                footer.style.top = (a4HeightLandscape * i - 24) + 'px'
+                const height = document.body.scrollHeight;
+                footer.style.top = (a4HeightLandscape * i) - (15 * (i + 1)) + 'px';
 
                 footer.innerHTML = `Fixed Asset Report | ${i} of ${numPages} Pages`;
+
+                const header = document.createElement('header');
+                header.innerHTML = `
+                    <span class="author">Created by: ${author}</span>
+                    <span class="timestamp">${timestamp}</span>
+                `;
+
+                header.style.top = (a4HeightLandscape * (i - 1) - 15 * (i - 1)) + 'px';
+
+                document.body.appendChild(header);
                 document.body.appendChild(footer);
             }
         }
 
-        window.addEventListener('DOMContentLoaded', createFootersForPDF)
+        window.addEventListener('DOMContentLoaded', createHeaderFooter)
     </script>
 
     <div class="report-header">

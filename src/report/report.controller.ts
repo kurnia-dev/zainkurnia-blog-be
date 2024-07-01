@@ -44,10 +44,10 @@ export class ReportController {
         printBackground: true,
         landscape: true,
         margin: {
-          left: '0',
-          top: '0',
-          right: '0',
-          bottom: '0',
+          left: '0.56cm',
+          top: '0.22cm',
+          right: '0.56cm',
+          bottom: '0.22cm',
         },
       });
 
