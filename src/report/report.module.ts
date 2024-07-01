@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ReportController } from './ReportController';
+import { ReportController } from './report.controller';
 
 @Module({
   controllers: [ReportController],
